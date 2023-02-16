@@ -1,17 +1,14 @@
-const button = document.querySelector('button');
-const div = document.querySelector('div');
+// const listItems = document.querySelectorAll('li');
 
-const buttonClickHandler = event => {
-    event.stopPropagation();
-    
-    console.log('Button clicked..')
-    console.log(event);
-}
+// listItems.forEach(listItem => {
+//     listItem.addEventListener('click', event => {
+//         event.target.classList.toggle('highlight');
+//     })
+// });
 
-const divClickHandler = event => {
-    console.log('Div clicked..')
-    console.log(event);
-}
+const list = document.querySelector('ul');
 
-button.addEventListener('click', buttonClickHandler);
-div.addEventListener('click', divClickHandler);
+list.addEventListener('click', event => {
+    // event.target.classList.toggle('highlight');
+    event.target.closest('li').classList.toggle('highlight');
+})

@@ -1,24 +1,10 @@
-const button = document.querySelector('button');
+const buttons = document.querySelectorAll('button');
 
-// Anonymous function
-// button.onclick = function () {  
-//     alert("click");
-// }
-
-const buttonClickHandler = () => {
-    alert('Click');
+const buttonClickHandler = event => {
+    event.target.disabled = true;
+    console.log(event);
 }
 
-const anotherButtonClickHandler = () => {
-    console.log('Click');
-}
-
-// button.onclick = buttonClickHandler;
-
-const boundFn = buttonClickHandler.bind(this); //bind() is optional in this case
-
-button.addEventListener('click', boundFn);
-
-setTimeout(() => {
-    button.removeEventListener('click', boundFn);
-},2000);
+buttons.forEach((button) => {
+    button.addEventListener('click', buttonClickHandler);
+})

@@ -1,10 +1,17 @@
-const buttons = document.querySelectorAll('button');
+const button = document.querySelector('button');
+const div = document.querySelector('div');
 
 const buttonClickHandler = event => {
-    event.target.disabled = true;
+    event.stopPropagation();
+    
+    console.log('Button clicked..')
     console.log(event);
 }
 
-buttons.forEach((button) => {
-    button.addEventListener('click', buttonClickHandler);
-})
+const divClickHandler = event => {
+    console.log('Div clicked..')
+    console.log(event);
+}
+
+button.addEventListener('click', buttonClickHandler);
+div.addEventListener('click', divClickHandler);
